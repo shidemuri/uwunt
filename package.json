@@ -1,0 +1,17 @@
+{
+  "name": "lolw",
+  "version": "1.0.0",
+  "description": "w",
+  "main": "lol.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "remove-markdown": "^0.3.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "padero",
+  "license": "ISC"
+}
