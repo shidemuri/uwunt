@@ -17,7 +17,7 @@ client.on(`ready`, () => {
 client.on(`message`, (m) => {
     if(m.author.bot) return;
     lista.forEach(w =>{
-        if(fuckmarkdown(`${m.content.toLowerCase()}`).includes(w)){
+        if(fuckmarkdown(`${m.content.toLowerCase().split(" ").join("")}`).includes(w)){
             if(m.deletable) m.delete()
             m.channel.send(`${m.author} fuck off`).then(ww =>{
                 sleep(2500).then(() => {
