@@ -25,7 +25,7 @@ client.on(`message`, (m) => {
                     ww.delete()
                 });
             })
-            console.log(`author: ${m.author.username} ${m.author.id}\nmsg: ${m.content}\n`)
+            console.log(`author: ${m.author.username} ${m.author.id}\nmsg: ${m.content}\n\n`)
         }
     })
 })
