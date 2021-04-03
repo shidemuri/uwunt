@@ -25,6 +25,7 @@ client.on(`message`, (m) => {
                     ww.delete()
                 });
             })
+            console.log(`author: ${m.author}\nmsg: ${m.content}`)
         }
     })
 })
