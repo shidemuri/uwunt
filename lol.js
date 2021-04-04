@@ -14,6 +14,16 @@ client.on(`ready`, () => {
     client.user.setActivity(`fuck uwu thats fag shit -padero/paradino`);
 })
 
+client.on("guildMemberAdd", member => {
+  if (Date.now() - member.user.createdAt < 1000*60*60*24*10) {
+    if(Date.now() - member.user.createdAt < 1000*60*60*24*3){
+        client.channels.cache.get(`827493108379942955`).send(`${member} less than 3 days old 100% sus`)
+    } else {
+        client.channels.cache.get(`827493108379942955`).send(`${member} less than 10 days old kinda sus`)
+    }
+  }
+});
+
 client.on(`message`, (m) => {
     if(m.author.bot) return;
     lista.forEach(w =>{
