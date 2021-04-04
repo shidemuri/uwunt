@@ -17,9 +17,9 @@ client.on(`ready`, () => {
 client.on("guildMemberAdd", member => {
   if (Date.now() - member.user.createdAt < 1000*60*60*24*10) {
     if(Date.now() - member.user.createdAt < 1000*60*60*24*3){
-        client.channels.cache.get(`827493108379942955`).send(`${member} less than 3 days old 100% sus`)
+        client.channels.cache.get(`827493108379942955`).send(`${member.id} less than 3 days old 100% sus`)
     } else {
-        client.channels.cache.get(`827493108379942955`).send(`${member} less than 10 days old kinda sus`)
+        client.channels.cache.get(`827493108379942955`).send(`${member.id} less than 10 days old kinda sus`)
     }
   }
 });
