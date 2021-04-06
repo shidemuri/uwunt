@@ -30,7 +30,8 @@ client.on(`message`, (m) => {
     lista.forEach(w =>{
         if(fuckmarkdown(`${m.content.toLowerCase().split(" ").join("")}`).includes(w)){
             if(m.deletable) m.delete()
-            m.channel.send(`${m.author} ${lolw[Math.floor(Math.random * lolw.length)]}`).then(ww =>{
+            let e = Math.floor(Math.random() * lolw.length)
+            m.channel.send(`${m.author} ${lolw[e])]}`).then(ww =>{
                 sleep(2500).then(() => {
                     ww.delete()
                 });
