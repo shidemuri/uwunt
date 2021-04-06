@@ -2,6 +2,7 @@ const discord = require(`discord.js`)
 const client = new discord.Client()
 
 const lista = require(`./FODASE.json`)
+const lolw = require(`./teste.json`)
 
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 
@@ -29,7 +30,7 @@ client.on(`message`, (m) => {
     lista.forEach(w =>{
         if(fuckmarkdown(`${m.content.toLowerCase().split(" ").join("")}`).includes(w)){
             if(m.deletable) m.delete()
-            m.channel.send(`${m.author} fuck off`).then(ww =>{
+            m.channel.send(`${m.author} ${lolw[Math.floor(Math.random * lolw.length)]}`).then(ww =>{
                 sleep(2500).then(() => {
                     ww.delete()
                 });
