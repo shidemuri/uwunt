@@ -23,7 +23,7 @@ client.on(`message`, (m) => {
             let e = Math.floor(Math.random() * lolw.length) //random message
             m.channel.send(`${m.author} ${lolw[e]}`).then(ww =>{
                 sleep(2500).then(() => {
-                    if(e !== 5) ww.delete()
+                    if(e !== 4) ww.delete()
                 });
             })
             console.log(`author: ${m.author.username} ${m.author.id}\nmsg: ${m.content}\n\n`)
