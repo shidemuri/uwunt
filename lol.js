@@ -1,32 +1,20 @@
-const discord = require(`discord.js`)
-const client = new discord.Client()
-
-const lista = require(`./FODASE.json`)
-const lolw = require(`./teste.json`)
-
+const d = require(`discord.js`)
+const client = new d.Client()
+const blacklist = require(`./FODASE.json`)
+const reply = require(`./teste.json`)
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 
-const fuckmarkdown = require(`remove-markdown`)
+client.on(`ready`, () => client.user.setActivity(`fuck uwu thats fag shit -padero (rewritten cuz yes)`))
 
-client.login(process.env.token)
-
-client.on(`ready`, () => {
-    console.log(`on`)
-    client.user.setActivity(`fuck uwu thats fag shit -padero/paradino`);
-})
-
-client.on(`message`, (m) => {
+client.on(`message`, m => {
     if(m.author.bot) return;
-    lista.forEach(w =>{
-        if(fuckmarkdown(`${m.content.toLowerCase()}`).includes(w)){
-            if(m.deletable) m.delete()
-            let e = Math.floor(Math.random() * lolw.length) //random message
-            m.channel.send(`${m.author} ${lolw[e]}`).then(ww =>{
-                sleep(2500).then(() => {
-                    if(e !== 4) ww.delete()
-                });
-            })
-            console.log(`author: ${m.author.username} ${m.author.id}\nmsg: ${m.content}\n\n`)
+    blacklist.forEach(word =>{
+        if(m.content.slice(/((`){1,3}|(\*){1,3}|(~){2}|(\|){2}|^(>){1})/gmi).toLowerCase().includes(word)){
+            m.delete()
+            var random = Math.floor(Math.random() * reply.length)
+            m.channel.send(`${m.author} ${reply[random]}`).then(mm => {sleep(2500).then(() => {if(random == 4) return; else mm.delete()})})
         }
     })
 })
+
+client.login(process.env.token)
